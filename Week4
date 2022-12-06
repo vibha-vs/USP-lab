@@ -1,0 +1,71 @@
+#!/bin/bash
+echo "enter the radius of the circle : "
+read rad
+area=`expr 3.14*$rad*$rad|bc`
+echo "the area of the circle is : $area"
+
+bmsce@DESKTOP-LSN1E53:~$ sh area.sh
+enter the radius of the circle :
+1
+the area of the circle is : 3.14
+
+
+
+#!/bin/bash
+echo "enter the number : "
+read num
+if test $num -gt 0
+        then
+                echo "the number is positive "
+elif test 0 -gt $num
+        then
+                echo "the number is negative"
+else
+        echo "the number entered is zero "
+fi
+
+bmsce@DESKTOP-LSN1E53:~$ sh polarity.sh
+enter the number :
+1
+the number is positive
+bmsce@DESKTOP-LSN1E53:~$ sh polarity.sh
+enter the number :
+-3
+the number is negative
+bmsce@DESKTOP-LSN1E53:~$ sh polarity.sh
+enter the number :
+0
+the number entered is zero
+
+#!/bin/bash
+#to find greatest of thre numbers
+if [ $1 -gt $2 ] && [ $1 -gt $3 ]
+        then
+                echo "$1 is the greatest of three"
+elif [ $2 -gt $3 ]
+        then
+                echo "$2 is the greatest of three "
+else
+        echo "$3 is greatest of three"
+fi
+
+
+
+bmsce@DESKTOP-LSN1E53:~$ sh biggest.sh 4 2 3
+4 is the greatest of three
+bmsce@DESKTOP-LSN1E53:~$ sh biggest.sh 4 4 3
+4 is the greatest of three
+bmsce@DESKTOP-LSN1E53:~$ sh biggest.sh 1 4 5
+5 is greatest of three
+
+
+
+#!/bin/bash
+#for printing a message by assigning to variable
+msg="shell scripting is fun!"
+echo $msg
+
+
+bmsce@DESKTOP-LSN1E53:~$ sh ex.sh
+shell scripting is fun!
+
