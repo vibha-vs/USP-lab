@@ -1,0 +1,118 @@
+bmsce@DESKTOP-LSN1E53:~$ nano sample.sh
+bmsce@DESKTOP-LSN1E53:~$ chmod a+x sample.sh
+bmsce@DESKTOP-LSN1E53:~$ sh sample.sh
+hello world
+
+bmsce@DESKTOP-LSN1E53:~$ nano displaydate.shbmsce@DESKTOP-LSN1E53:~$ sh displaydate.sh
+inside nano 
+#!/bin/bash
+echo "today's date is `date`"
+date
+date is Tue Nov 22 11:35:53 IST 2022
+Tue Nov 22 11:35:53 IST 2022
+
+
+
+#!/bin/bash
+#program to  serach for a given pattern in interactive mode
+echo "enter the pattern to search \c : "
+read  pname
+echo "enter the file to use \c : "
+read filename
+echo "searching $pname in  $filename"
+grep "$pname" $filename
+echo "selected record shown"
+
+
+bmsce@DESKTOP-LSN1E53:~$ nano emp.lst
+bmsce@DESKTOP-LSN1E53:~$ cat emp.lst
+1     afifah     cse      10000
+2     vibha      IS       20000
+3     afrah      Mech     30000
+4     avirah     cse      40000
+
+bmsce@DESKTOP-LSN1E53:~$ sh pattern1.sh
+enter the pattern to search afifah
+enter the file to use emp.lst
+searching afifah in  emp.lst
+1     afifah     cse      10000
+selected record shown
+
+#!/bin/bash
+# program to print the patter non interactive program
+echo "program : $0 the number of arguments are  $# and the arguments are $*"
+echo "searching for pattern $1 $2 in file $3"
+grep "$1" $3
+grep "$2" $3
+echo "job over"
+
+bmsce@DESKTOP-LSN1E53:~$ sh pattern2.sh afifah vibha emp.lst
+program : pattern2.sh the number of arguments are  3 and the arguments are afifah vibha emp.lst
+searching for pattern afifah vibha in file emp.lst
+1     afifah     cse      10000
+2     vibha      IS       20000
+job over
+
+
+#!/bin/bash
+#program to display exit status
+echo "enter the patter"
+read pname
+echo "enter file name "
+read filename
+echo "searching for $pname in $filename "
+grep "$pname" $filename; echo $?
+
+bmsce@DESKTOP-LSN1E53:~$ sh exitstatus.sh
+enter the patter
+afifah
+enter file name
+emp.lst
+searching for afifah in emp.lst
+1     afifah     cse      10000
+0
+bmsce@DESKTOP-LSN1E53:~$ sh exitstatus.sh
+enter the patter
+hello
+enter file name
+emp.lst
+searching for hello in emp.lst
+1
+
+bmsce@DESKTOP-LSN1E53:~$ sh exitstatus.sh
+enter the patter
+afifah
+enter file name
+emp1.sh
+searching for afifah in emp1.sh
+grep: emp1.sh: No such file or directory
+2
+
+#!/bin/bash
+#program using conditional execustion
+grep  $1 $2 && echo "pattern $1 found in file $2"
+grep $1 $2  || echo "pattern $1 not found in file $2"
+
+bmsce@DESKTOP-LSN1E53:~$ sh pattern3.sh hello emp.lst
+pattern hello not found in file emp.lst
+
+bmsce@DESKTOP-LSN1E53:~$ sh pattern3.sh hello emp.lst
+pattern hello not found in file emp.lst
+bmsce@DESKTOP-LSN1E53:~$ sh pattern3.sh hello emp.lst
+pattern hello not found in file emp.lst
+
+#!/bin/bash
+#program to see whether a year is leap year or not
+echo "enter the year"
+read y
+if [ $((y % 4)) -eq 0 ]
+then
+echo "$y is a leap year"
+else
+echo "it is not a leap year!!!"
+fi
+afifah@AfifahXPS:~$ nano leap.sh
+afifah@AfifahXPS:~$ sh leap.sh
+enter the year
+2020
+2020 is a leap year
