@@ -1,0 +1,141 @@
+#!/bin/bash
+#Factorial of a number
+echo "Enter a number"
+read n
+fact=1
+i=1
+while [ $i -le $n ]
+do
+fact=`expr $i \* $fact`
+i=`expr $i + 1`
+done
+echo "The factorial of $n is $fact"
+
+Output:
+bmsce@bmsce-OptiPlex-3060:~$ sh factorial.sh
+Enter a number
+5
+The factorial of 5 is 120
+
+#!\bin\bash
+#Gross salary of an employee
+echo "Enter the basic salary of an employee"
+read sal
+da=`expr $sal \* 10 / 100`
+hr=`expr $sal \* 20 / 100`
+gr=`expr $sal + $da + $hr`
+echo "The gross salary is $gr"
+
+Output:
+bmsce@bmsce-OptiPlex-3060:~$ sh salary.sh
+Enter the basic salary of an employee
+10000
+The gross salary is 13000
+
+#!/bin/bash
+#Fahrenheit to Celsius
+echo "Enter the temperature in Fahrenheit"
+read f
+temp=`expr $f - 32`
+c=`expr $temp \* 5 / 9`
+echo "The temperature in celsius is $c degrees"
+
+Output:
+bmsce@bmsce-OptiPlex-3060:~$ sh temperature.sh
+Enter the temperature in Fahrenheit
+212
+The temperature in celsius is 100 degrees
+
+#!\bin\bash
+#Sum of even numbers till n
+echo "Enter a number"
+read n
+i=0
+sum=0
+while [ $i -le $n ]
+do
+sum=`expr $sum + $i`
+i=`expr $i + 2`
+done
+echo "Sum of even numbers till $n is $sum"
+
+Output:
+bmsce@bmsce-OptiPlex-3060:~$ sh sumofeven.sh
+Enter a number
+10
+Sum of even numbers till 10 is 30
+
+#!/bin/bash
+#Simple calculator
+echo "Enter the first number"
+read num1
+echo "Enter the second number"
+read num2
+echo "Choose the arithmetic operation
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit"
+read choice
+case $choice in
+1) echo "Sum = `expr $num1 + $num2`";;
+2) echo "Difference = `expr $num1 - $num2`";;
+3) echo "Product = `expr $num1 \* $num2`";;
+4) echo "Quotient = `expr $num1 / $num2`";;
+5) exit;;
+esac 
+
+Output:
+bmsce@bmsce-OptiPlex-3060:~$ sh calculator.sh
+Enter the first number
+3
+Enter the second number
+2
+Choose the arithmetic operation
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+1
+Sum = 5
+bmsce@bmsce-OptiPlex-3060:~$ sh calculator.sh
+Enter the first number
+4
+Enter the second number
+2
+Choose the arithmetic operation
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+2
+Difference = 2
+bmsce@bmsce-OptiPlex-3060:~$ sh calculator.sh
+Enter the first number
+4
+Enter the second number
+5
+Choose the arithmetic operation
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+3
+Product = 20
+bmsce@bmsce-OptiPlex-3060:~$ sh calculator.sh
+Enter the first number
+10
+Enter the second number
+5
+Choose the arithmetic operation
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+4
+Quotient = 2
