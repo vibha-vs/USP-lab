@@ -1,0 +1,14 @@
+#!/bin/bash
+#program to see whether a year is leap year or not
+echo "enter the year"
+read y
+if [ $((y % 4)) -eq 0 ]
+then
+echo "$y is a leap year"
+else
+echo "it is not a leap year!!!"
+fi
+
+enter the year
+2020
+2020 is a leap year
