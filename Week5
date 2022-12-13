@@ -38,6 +38,7 @@ echo "Enter the temperature in Fahrenheit"
 read f
 temp=`expr $f - 32`
 c=`expr $temp \* 5 / 9`
+#c=$(echo "scale=2; $temp * 5/9"|bc)
 echo "The temperature in celsius is $c degrees"
 
 Output:
