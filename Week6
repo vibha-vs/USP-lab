@@ -129,3 +129,82 @@ Enter the limit
 1
 2
 3
+
+#!/bin/bash
+#LCM and GCD of two numbers
+echo "Enter two numbers"
+read m n
+temp=`expr $m \* $n`
+while [ $m != $n ]
+do
+if [ $m -gt $n ]
+then
+m=`expr $m - $n`
+else
+n=`expr $n - $m`
+fi
+done
+echo "GCD = $n"
+lcm=`expr $temp / $n`
+echo "LCM = $lcm"
+
+
+bmsce@bmsce-OptiPlex-3060:~$ sh lcmgcd.sh
+Enter two numbers
+2 5
+GCD = 1
+LCM = 10
+bmsce@bmsce-OptiPlex-3060:~$ sh lcmgcd.sh
+Enter two numbers
+6 12
+GCD = 6
+LCM = 12
+
+#!/bin/bash
+#Validate name to not exceed 20 characters
+echo "Enter your name"
+read name
+_LEN=${#name}
+if [ "$_LEN" -gt 20 ]
+then
+echo "This name is invalid. It exceeds 20 characters."
+else
+echo "This name is valid"
+fi
+
+bmsce@bmsce-OptiPlex-3060:~$ sh validatename.sh
+Enter your name
+Vibha
+This name is valid
+bmsce@bmsce-OptiPlex-3060:~$ sh validatename.sh
+Enter your name
+Vibha Venkatesh Shanbhag
+This name is invalid. It exceeds 20 characters.
+                                                                                  
+#!/bin/bash
+#First occurence of a character in a string
+echo "Enter a string"
+read s
+echo "Enter a character"
+read ch
+flag=-1
+count=0
+for i in $s
+#for (( i=0; i<${#s}; i++ ));
+do
+#c=`echo "${s:$i:1}"`
+#if [ "${s:$i:1}" -eq "$ch" ]
+if [ $i -eq $ch ]
+then
+echo "$ch is found at $count location of $s"
+flag=0
+break
+else
+count=`expr $count + 1`
+fi
+done
+if [ $flag -lt 0 ]
+then
+echo "$ch is not found in $s"
+fi
+
