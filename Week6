@@ -1,0 +1,131 @@
+#!/bin/bash
+#Combination of 1 2 3
+for i in 1 2 3
+do
+for j in 1 2 3
+do 
+for k in 1 2 3
+do
+echo $i $j $k
+done 
+done
+done
+
+bmsce@bmsce-OptiPlex-3060:~$ sh combination.sh
+1 1 1
+1 1 2
+1 1 3
+1 2 1
+1 2 2
+1 2 3
+1 3 1
+1 3 2
+1 3 3
+2 1 1
+2 1 2
+2 1 3
+2 2 1
+2 2 2
+2 2 3
+2 3 1
+2 3 2
+2 3 3
+3 1 1
+3 1 2
+3 1 3
+3 2 1
+3 2 2
+3 2 3
+3 3 1
+3 3 2
+3 3 3
+
+#!/bin/bash
+#Power of a number
+echo "Enter the base value"
+read x
+echo "Enter the exponent value"
+read n
+ans=1
+i=0
+while [ $i -lt $n ]
+do
+ans=`expr $ans \* $x`
+i=`expr $i + 1`
+done
+echo "$x^$n = $ans"
+
+bmsce@bmsce-OptiPlex-3060:~$ sh power.sh
+Enter the base value
+2
+Enter the exponent value
+4
+2^4 = 16
+bmsce@bmsce-OptiPlex-3060:~$ sh power.sh
+Enter the base value
+5
+Enter the exponent value
+3
+5^3 = 125
+
+#!/bin/bash
+#Sum of n numbers
+echo "Enter a number"
+read n
+temp1=`expr $n + 1`
+temp2=`expr $temp1 \* $n`
+sum=`expr $temp2 / 2`
+echo "Sum of first $n natural numbers = $sum"
+
+bmsce@bmsce-OptiPlex-3060:~$ sh sumofn.sh
+Enter a number
+5
+Sum of first 5 natural numbers = 15
+bmsce@bmsce-OptiPlex-3060:~$ sh sumofn.sh
+Enter a number
+10
+Sum of first 10 natural numbers = 55
+
+#!/bin/bash
+#Fibonacci series 
+echo "Enter the limit"
+read n
+n1=0
+n2=1
+if [ $n -eq 1 ]
+then
+echo $n1
+elif [ $n -eq 2 ]
+then
+echo $n1 $n2
+else
+count=2
+echo $n1
+echo $n2
+while [ $count -lt $n ]
+do
+n3=`expr $n1 + $n2`
+n1=$n2
+n2=$n3
+count=`expr $count + 1`
+echo $n2
+done
+fi
+
+
+bmsce@bmsce-OptiPlex-3060:~$ sh fib.sh
+Enter the limit
+1
+0
+bmsce@bmsce-OptiPlex-3060:~$ sh fib.sh
+Enter the limit
+2
+0 1
+bmsce@bmsce-OptiPlex-3060:~$ sh fib.sh
+Enter the limit
+5
+0
+1
+1
+2
+3
