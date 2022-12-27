@@ -1,0 +1,16 @@
+pattern.sh                                                                                                               
+#!/usr/bin/bash
+p=3
+for (( m=1; m<=p; m++ ))
+do
+for (( a=m; a<=p; a++ ))
+do
+echo -ne " ";
+done
+for (( n=1; n<=m; n++ ))
+do
+echo -ne "*";
+echo -ne " ";
+done
+echo;
+done
