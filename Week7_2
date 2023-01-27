@@ -1,0 +1,131 @@
+#!/bin/bash
+#Shell
+#script to display the PASS CL ASS OF A STUDENT(Enter Name, Student Number, Marks
+#of three subjects. If any subject’s marks is less than 50 then display fail.
+#Otherwise calculate the average of three marks. If avg is greater than 90 then
+#display distinction else if marks is greater than 60 display first class else
+#display second)
+av=0
+echo "enter the name of the student : "
+read name
+echo "enter the student number : "
+read snum
+echo "enter the marks of the student in 3 subjects : "
+read m1
+read m2
+read m3
+
+if [ $m1 -lt 50 ] || [ $m2 -lt 50 ] || [ $m3 -lt 50 ]
+then
+echo "$name with student id $snum has failed ";exit
+
+else
+av=$(((m1+m2+m3)/3))
+fi
+echo "the avearge of the student is $av"
+if [ $av -gt 90 ]
+then
+echo "$name with student id $snum has passed with distinction";exit
+av=0
+echo "enter the name of the student : "
+read name
+echo "enter the student number : "
+read snum
+echo "enter the marks of the student in 3 subjects : "
+read m1
+read m2
+read m3
+
+if [ $m1 -lt 50 ] || [ $m2 -lt 50 ] || [ $m3 -lt 50 ]
+then
+echo "$name with student id $snum has failed ";exit
+
+else
+av=$(((m1+m2+m3)/3))
+fi
+echo "the avearge of the student is $av"
+if [ $av -gt 90 ]
+then
+echo "$name with student id $snum has passed with distinction";exit
+elif [ $av -gt 60 ] && [ $av -lt 90 ]
+then
+echo "$name with student id $snum has passed with first class ";exit
+else
+echo "$name with student id $snum has passed with second class ";exit
+fi
+
+
+output
+$ sh passclass.sh
+enter the name of the student :
+Vibha
+enter the student number :
+1BM20CS195
+enter the marks of the student in 3 subjects :
+90
+95
+100
+the avearge of the student is 95
+Vibha with student id 1BM20CS195 has passed with distinction
+
+$ sh passclass.sh
+enter the name of the student :
+XYZ
+enter the student number :
+1BM20CS1000
+enter the marks of the student in 3 subjects :
+50
+47
+100
+XYZ with student id 1BM20CS1000 has failed
+
+
+#!/bin/bash
+#Shell
+#script to count the number of VOWELS OF A STRING
+count=0
+len=0
+echo "enter the string : "
+read str
+len=`expr length "$str"`
+echo "length of the string is $len"
+while [ $len -gt 0 ]
+do
+ch=$(echo "$str" | cut -c $len)
+
+case $ch in
+[aAeEiIoOuU])echo $ch
+                     count=`expr $count + 1`;;
+esac
+len=$(($len-1))
+done
+echo "the number of vowels in the string "$str" is/are : $count"
+
+
+output
+$ sh vowels.sh
+enter the string :
+aeiou
+length of the string is 5
+u
+o
+i
+e
+a
+the number of vowels in the string aeiou is/are : 5
+
+
+#!/bin/bash
+
+echo "enter string"
+read string
+
+count=0
+C  
+for ((i=0; i<${  #string}; i++)); do
+        char=${string:$i:1}
+        if [ $char = 'a' -o  $char = 'e' -o $char = 'i' -o $char = 'o' -o $char = 'u' ]
+        then
+                count=`expr $count + 1`
+        fi
+done
