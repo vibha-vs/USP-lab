@@ -1,0 +1,120 @@
+#!/bin/bash
+#to count the number of words lines and characters in a file 
+echo "enter the filename : "
+read fname
+if [ -f "$fname" ]
+then
+echo "file exists"
+echo "number of lines : "
+wc -l $fname
+echo "number of words : "
+wc -w $fname
+echo "number of characters : "
+wc -c $fname
+
+else
+echo "no such file exists "
+fi
+
+output -
+bmsce@DESKTOP-LSN1E53:~$ sh count.sh
+enter the filename :
+emp.lst
+file exists
+number of lines :
+4 emp.lst
+number of words :
+16 emp.lst
+number of characters :
+128 emp.lst
+
+
+#!/bin/bash
+#validating dept code and redirecting the output using a here document
+IFS="|"
+while
+echo "enter the department code : "
+do
+read dcode
+set -- `grep "^$dcode"<<limit
+01|accounts|6213
+02|admin|5423
+03|marketing|6521
+04|personnel|2365
+05|production|9876
+06|sales|1006
+limit`
+case $# in
+3) echo "dept name : $2 \nemp-id of the head of the dept : $3 \n"
+shift 3;;
+*) echo "invalid code";continue
+esac
+done
+
+output-
+bmsce@DESKTOP-LSN1E53:~$ sh validtae.sh
+enter the department code :
+01
+dept name : accounts
+emp-id of the head of the dept : 6213
+
+enter the department code :
+02
+dept name : admin
+emp-id of the head of the dept : 5423
+
+enter the department code :
+00
+invalid code
+enter the department code :
+^C
+
+
+#!/bin/bash
+#to find a series of given patterns in a file using shift command
+case $# in
+0|1)echo "usage: $0 file pattern(s)";exit 2;;
+*)flname=$1
+shift
+for pattern in "$@";do
+grep "$pattern" $flname || echo "pattern $pattern not found "
+done;;
+esac
+
+
+output-
+bmsce@DESKTOP-LSN1E53:~$ sh pat.sh emp.lst afifah
+1     afifah     cse      10000
+bmsce@DESKTOP-LSN1E53:~$ nano pat.sh
+bmsce@DESKTOP-LSN1E53:~$ sh pat.sh
+usage: pat.sh file pattern(s)
+bmsce@DESKTOP-LSN1E53:~$ sh pat.sh emp.lst afifah vibha
+1     afifah     cse      10000
+2     vibha      IS       20000
+
+#!/bin/bash
+#code and description and redirecting to another file
+answer=y
+while [ "$answer" = "y" ]
+do
+echo "enter the code and description : "
+read code description
+echo "$code | $description ">>newlist
+echo "enter anymore (y/n)?  "/dev/tty
+read anymore
+case $anymore in
+y*|Y*)answer=y;;
+n*|N*)answer=n;;
+*)answer=y;;
+esac
+done
+
+output -
+bmsce@DESKTOP-LSN1E53:~$ sh cd.sh
+enter the code and description :
+hello hello
+enter anymore (y/n)?  /dev/tty
+n
+
+bmsce@DESKTOP-LSN1E53:~$ cat newlist
+hello | hello
