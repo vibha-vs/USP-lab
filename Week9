@@ -1,0 +1,185 @@
+#list all files and directories and attributes
+
+bmsce@DESKTOP-LSN1E53:~$ ls -l
+total 52
+-rw-r--r-- 1 bmsce bmsce     0 Nov 29 11:54 0]
+-rw-r--r-- 1 bmsce bmsce     0 Dec 27 11:56 60
+-rw-r--r-- 1 bmsce bmsce     0 Dec 27 11:59 90
+drwxr-xr-x 1 bmsce bmsce  4096 Oct 28  2021 Jahnavi_USP
+-rw-r--r-- 1 bmsce bmsce   133 Nov 29 11:49 area.sh
+-rw-r--r-- 1 bmsce bmsce    74 Oct 28  2021 area_of_circle.sh
+-rw-r--r-- 1 bmsce bmsce   432 Dec  6 12:07 arithmetic.sh
+-rw-r--r-- 1 bmsce bmsce   229 Nov 29 12:19 biggest.sh
+-rw-r--r-- 1 bmsce bmsce   298 Jan  3 12:31 cd.sh
+-rw-r--r-- 1 bmsce bmsce   255 Jan  3 11:46 count.sh
+-rw-r--r-- 1 bmsce bmsce   249 Dec  6 13:11 des.sh
+-rw-r--r-- 1 bmsce bmsce     0 Jan  3 12:45 desig.lst
+drwxr-xr-x 1 bmsce bmsce  4096 Nov 15 11:40 dir1
+drwxr-xr-x 1 bmsce bmsce  4096 Nov 15 12:33 direc1
+-rwxr-xr-x 1 bmsce bmsce    65 Nov 22 11:38 displaydate.sh
+-rw-r--r-- 1 bmsce bmsce    35 Nov 22 11:34 displaydate.shy
+-rw-r--r-- 1 bmsce bmsce   128 Nov 22 11:44 emp.lst
+-rw-r--r-- 1 bmsce bmsce   187 Dec  6 12:16 even.sh
+-rw-r--r-- 1 bmsce bmsce    53 Nov 29 12:32 ex.sh
+-rw-r--r-- 1 bmsce bmsce   114 Nov 29 12:51 ex2.sh
+-rw-r--r-- 1 bmsce bmsce   194 Nov 22 12:23 exitstatus.sh
+-rw-r--r-- 1 bmsce bmsce   165 Dec  6 11:27 fact.sh
+-rw-r--r-- 1 bmsce bmsce   285 Dec 13 11:30 fib.sh
+-rw-r--r-- 1 bmsce bmsce   101 Nov 22 12:51 foo
+-rw-r--r-- 1 bmsce bmsce   138 Nov 22 12:48 leap.sh
+-rw-r--r-- 1 bmsce bmsce    35 Nov  8 11:58 list
+-rw-r--r-- 1 bmsce bmsce    53 Dec 13 11:28 name.sh
+-rw-r--r-- 1 bmsce bmsce    15 Jan  3 12:31 newlist
+-rwxr-xr-x 1 bmsce bmsce  1037 Dec 27 11:59 passclass.sh
+-rw-r--r-- 1 bmsce bmsce   250 Jan  3 12:20 pat.sh
+-rw-r--r-- 1 bmsce bmsce    99 Dec 13 11:21 patt.sh
+
+
+#to give execution permission to all in file start
+bmsce@DESKTOP-LSN1E53:~$ cat > start
+hello ^C
+bmsce@DESKTOP-LSN1E53:~$ chmod a+x start
+bmsce@DESKTOP-LSN1E53:~$ ls -l start
+-rwxr-xr-x 1 bmsce bmsce 0 Jan 10 11:38 start
+-rwxr-xr-x 1 bmsce bmsce   367 Dec 27 12:44 pattern.sh
+-rw-r--r-- 1 bmsce bmsce   265 Nov 22 11:50 pattern1.sh
+-rwxr-xr-x 1 bmsce bmsce   231 Nov 22 12:14 pattern2.sh
+-rw-r--r-- 1 bmsce bmsce   154 Nov 22 12:57 pattern3.sh
+-rw-r--r-- 1 bmsce bmsce   211 Nov 22 13:08 pattern4.sh
+-rw-r--r-- 1 bmsce bmsce   210 Nov 29 12:04 polarity.sh
+-rw-r--r-- 1 bmsce bmsce   235 Dec 13 11:29 power.sh
+-rw-r--r-- 1 bmsce bmsce   333 Dec  6 12:34 print.sh
+-rw------- 1 bmsce bmsce    81 Jan  3 12:49 rudi.sh.save
+-rw-r--r-- 1 bmsce bmsce   192 Dec  6 11:33 sal.sh
+-rwxr-xr-x 1 bmsce bmsce    53 Nov 22 11:39 sample.sh
+-rw-r--r-- 1 bmsce bmsce   141 Dec  6 11:56 temp.sh
+-rw-r--r-- 1 bmsce bmsce 49152 Nov 15 13:04 typescript
+drwxr-xr-x 1 bmsce bmsce  4096 Nov  8 12:35 usp
+-rw-r--r-- 1 bmsce bmsce   342 Jan  3 12:00 validtae.sh
+-rwxr-xr-x 1 bmsce bmsce   408 Dec 27 11:24 vowel.sh
+
+
+
+#to display ony dierectories and attributes
+bmsce@DESKTOP-LSN1E53:~$ ls -ld
+drwxr-xr-x 1 bmsce bmsce 4096 Jan  3 12:49 .
+
+
+#to give user all permissions and group and others read and execute
+
+bmsce@DESKTOP-LSN1E53:~$ chmod a-rwx end
+bmsce@DESKTOP-LSN1E53:~$ ls -l end
+---------- 1 bmsce bmsce 0 Jan 10 11:45 end
+
+
+bmsce@DESKTOP-LSN1E53:~$ chmod u+rwx,go+rx end
+bmsce@DESKTOP-LSN1E53:~$ ls -l end
+-rwxr-xr-x 1 bmsce bmsce 0 Jan 10 11:45 end
+
+
+#to remove excute permission from alla nd assign read and write permission to other two 
+bmsce@DESKTOP-LSN1E53:~$ cat > file
+^C
+bmsce@DESKTOP-LSN1E53:~$ chmod a-rwx file
+bmsce@DESKTOP-LSN1E53:~$ ls -l file
+---------- 1 bmsce bmsce 0 Jan 10 11:54 file
+bmsce@DESKTOP-LSN1E53:~$ rm file
+rm: remove write-protected regular empty file 'file'? y
+bmsce@DESKTOP-LSN1E53:~$ cat > file
+^C
+bmsce@DESKTOP-LSN1E53:~$ chmod a-x,go+rw file
+bmsce@DESKTOP-LSN1E53:~$ ls -l file
+-rw-rw-rw- 1 bmsce bmsce 0 Jan 10 11:55 file
+
+
+
+
+#assign using absolute permission only read and write to a file
+
+bmsce@DESKTOP-LSN1E53:~$ cat > file1
+^C
+bmsce@DESKTOP-LSN1E53:~$ chmod 000 file1
+bmsce@DESKTOP-LSN1E53:~$ ls -l file1
+---------- 1 bmsce bmsce 0 Jan 10 12:01 file1
+bmsce@DESKTOP-LSN1E53:~$ chmod 666 file1
+bmsce@DESKTOP-LSN1E53:~$ ls -l file1
+-rw-rw-rw- 1 bmsce bmsce 0 Jan 10 12:01 file1
+
+
+
+#change file permission
+bmsce@DESKTOP-LSN1E53:~$ cat > workfile.txt
+^C
+bmsce@DESKTOP-LSN1E53:~$ chmod 000 workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ ls -l workfile.txt
+---------- 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ chmod u+x,g+rw,o+rwx workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ ls -l workfile.txt
+---xrw-rwx 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+
+
+bmsce@DESKTOP-LSN1E53:~$ chmod 000 workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ chmod u+rwx,o+rx workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ ls -l workfile.txt
+-rwx---r-x 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+
+
+bmsce@DESKTOP-LSN1E53:~$ chmod 000 workfile.txt
+bmsce@DESKTOP-LSN1E53:~$ ls -l workfile.txt
+---------- 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+
+
+
+bmsce@DESKTOP-LSN1E53:~$ cat > file3
+^C
+bmsce@DESKTOP-LSN1E53:~$ ls -l file3
+-rw-r--r-- 1 bmsce bmsce 0 Jan 10 12:24 file3
+bmsce@DESKTOP-LSN1E53:~$ chmod 114 file3
+bmsce@DESKTOP-LSN1E53:~$ ls -l file3
+---x--xr-- 1 bmsce bmsce 0 Jan 10 12:24 file3
+
+
+
+#write a shell script to assign the following commands
+bmsce@DESKTOP-LSN1E53:~$ nano file.sh
+
+#!/bin/sh
+ls -l workfile.txt
+chmod 711 workfile.txt
+ls -l workfile.txt
+chmod 520 workfile.txt
+ls -l workfile.txt
+chmod 776 workfile.txt
+ls -l workfile.txt
+
+
+bmsce@DESKTOP-LSN1E53:~$ sh file.sh
+---------- 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+-rwx--x--x 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+-r-x-w---- 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+-rwxrwxrw- 1 bmsce bmsce 0 Jan 10 12:14 workfile.txt
+
+
+
+#list files iwth hardlinks
+bmsce@DESKTOP-LSN1E53:~$ ls -l file5
+-----w--w- 1 bmsce bmsce 0 Jan 10 12:45 file5
+bmsce@DESKTOP-LSN1E53:~$ ls -i
+  8162774324978900 0]                   1688849861402764 count.sh          10414574139100549 even.sh          1970324838065868 file2      5629499535344601 passclass.sh    5629499534577048 power.sh        6192449488773345 validtae.sh
+  1970324838068669 60                   4503599628279203 des.sh            16607023626024938 ex.sh            3940649675040523 file3      1970324838082473 pat.sh          6473924465152303 print.sh        2814749768237942 vowel.sh
+ 12103423998855363 90                  12384898976407820 desig.lst         15762598695871457 ex2.sh         112027040730844902 file4     10133099161589937 patt.sh        19421773393399367 rudi.sh.save    3377699721619196 workfile.txt
+   562949953444130 Jahnavi_USP          1688849860452025 dir1               3940649674435839 exitstatus.sh    8162774325695605 file5     10696049115018438 pattern.sh     11258999068555054 sal.sh
+  4785074604448743 area.sh              2533274790748236 direc1             9288674232217051 fact.sh         12384898976066908 foo       28428972648011605 pattern1.sh     6755399441853747 sample.sh
+  2251799813700098 area_of_circle.sh    5910974511721789 displaydate.sh    13510798882440088 fib.sh           7036874418564446 leap.sh   12384898976066876 pattern2.sh    16325548650024330 start
+ 24769797951331897 arithmetic.sh       10696049115802200 displaydate.shy   12103423999645832 file            13792273858834987 list      37717646880025906 pattern3.sh     9288674232245874 temp.sh
+  9007199254745304 biggest.sh           6755399441853752 emp.lst           10414574138978748 file.sh          5629499535018299 name.sh    5910974511721826 pattern4.sh     1688849860451997 typescript
+  6192449488773385 cd.sh                2533274791482458 end               10696049115812354 file1            2533274791534858 newlist    3377699720897791 polarity.sh    18858823439615227 usp
+
+
+
+#symbollic links
+bmsce@DESKTOP-LSN1E53:~$ cat > foo
+^C
+bmsce@DESKTOP-LSN1E53:~$ ln -s foo foo.txt
+bmsce@DESKTOP-LSN1E53:~$ ls -l foo.txt
+lrwxrwxrwx 1 bmsce bmsce 3 Jan 10 12:54 foo.txt -> foo
